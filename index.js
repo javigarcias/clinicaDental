@@ -1,6 +1,7 @@
 //Basic Import Section
 const express=require('express');
 const app=express();
+const clienteRouter = require('./routers/clienteRouter');
 
 
 //Middleware
@@ -9,6 +10,9 @@ app.use(express.json());
 //db connection
 const dbconnect = require('./config/dbconnect');
 dbconnect();
+
+app.use('/clientes',clienteRouter);
+
 
 
 //port listen
