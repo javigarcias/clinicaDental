@@ -28,6 +28,9 @@ const UserSchema=mongoose.Schema({
         required:true,
         minlength: [4, "Debes introducir mínimo 4 caracteres"]
     },
+    token:{
+        type:String,
+    }
 })
 
 const ClienteModel = mongoose.model('cliente',UserSchema);
