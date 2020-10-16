@@ -2,7 +2,7 @@ const dbconnect = () => {
 
     //dB connection//////////
     const mongoose = require("mongoose");
-    const uri = "mongodb+srv://javigarcias:javicoder@cluster0.acx3v.mongodb.net/ClinicaDental?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://javiAdmin:6XJtqXc89xGxRGw7@cluster0.acx3v.mongodb.net/ClinicaDental?retryWrites=true&w=majority";
 
     mongoose.connect(uri, {
             useNewUrlParser: true,
