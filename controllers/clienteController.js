@@ -77,17 +77,16 @@ const ClienteController = {
     },
     async logout (req,res){
         try {
-             const cliente = {email:req.body.email};
-             const clienteLogout = {token:null};
-             await ClienteModel.findOneAndUpdate (cliente,clienteLogout);
-             res.status(201).send(cliente);
+             await ClienteModel.findOneAndUpdate (req.body.email, {token:null}, {new:true, useFindAndModify:false});
+             res.status(201).send({
+                 message: 'Logout is OK'
+             });
         } catch (error) {
             console.error(error);
             res.status(500).send({
                 error,
                 message: 'There was a problem trying to logout the client'
-            })
-            
+            })            
         }
     }
 
