@@ -2,6 +2,8 @@
 const express=require('express');
 const app=express();
 const clienteRouter = require('./routers/clienteRouter');
+const citaRouter = require('./routers/citaRouter');
+
 const cors=require('./middleware/cors');
 
 
@@ -15,9 +17,10 @@ const dbconnect = require('./config/dbconnect');
 dbconnect();
 
 app.use('/clientes',clienteRouter);
+app.use('/citas', citaRouter);
 
 
 
 //port listen
 const PORT = 3000;
-app.listen(PORT, () => console.log('server running on port ' + PORT))
+app.listen(PORT, () => console.log('server running on port ' + PORT));

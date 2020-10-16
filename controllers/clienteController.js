@@ -2,8 +2,6 @@ const ClienteModel=require('../models/cliente');
 const bcrypt = require("bcryptjs");
 
 
-
-
 const ClienteController = {
     async registro(req, res) {
         let bodyData = req.body;
