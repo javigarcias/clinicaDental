@@ -34,9 +34,9 @@ const ClienteController = {
                 nombre: bodyData.nombre,
                 apellidos: bodyData.apellidos,
                 email: bodyData.email,
-                password: hashPass
+                password: hashPass,
+                telefono: bodyData.telefono
             }).save();
-            
             res.status(201).send(cliente);
         } catch (error) {
             console.error(error);
@@ -44,6 +44,50 @@ const ClienteController = {
                 error,
                 message: 'There was a problem trying to register the client'
             })
+        }
+    },
+    async login(req, res) {
+        let clienteEncontrado = await ClienteModel.findOne({
+            email: req.body.email
+        });
+        
+        if(!clienteEncontrado){
+            res.send({
+                message: "No existe el usuario"
+            })
+        }else{
+    
+            let passwordOk = await bcrypt.compare(req.body.password, clienteEncontrado.password);
+    
+            if(!passwordOk){
+                res.send({
+                    message: "Credenciales incorrectas"
+                })
+            }else{
+                clienteEncontrado.token = clienteEncontrado._id;
+                await clienteEncontrado.save();
+                res.send({
+                    nombre: clienteEncontrado.nombre,
+                    email: clienteEncontrado.email
+                })
+            }
+            
+        }
+
+    },
+    async logout (req,res){
+        try {
+             const cliente = {email:req.body.email};
+             const clienteLogout = {token:null};
+             await ClienteModel.findOneAndUpdate (cliente,clienteLogout);
+             res.status(201).send(cliente);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({
+                error,
+                message: 'There was a problem trying to logout the client'
+            })
+            
         }
     }
 
