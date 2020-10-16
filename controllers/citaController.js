@@ -8,8 +8,6 @@ const CitaController = {
         let cliente = await ClienteModel.findOne({
             email:req.body.email
         });
-        console.log(cliente);
-
         if (!cliente.token){
             res.status(400).send({
                 error,
@@ -35,7 +33,38 @@ const CitaController = {
     }
 
     
+    },
+    async cancelar (req, res){
+        try {
+            await CitaModel.findByIdAndDelete({
+                _id:req.params._id
+            });
+            res.status(201).send({
+                message: `La cita ha sido cancelada exitosamente`
+            });         
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({
+                error,
+                message: 'There was a problem trying to deleted the appointment'
+            })
+        }
+    },
+    async ver (req, res){
+        try {
+            const citas = await CitaModel.find({
+                iduser: req.params.token
+            });
+            res.status(201).send({citas});
+            
+        } catch (error) {
+            res.status(500).send({
+                error,
+                message: 'There was a problem trying to view the appointments'
+            })
+        }
     }
+
 }
 
 module.exports = CitaController;
