@@ -48,4 +48,4 @@ _Tecnologías utilizadas en el proyecto_
 * **Javier García**  - [javigarcias](https://github.com/javigarcias)
 
 ---
-⌨️ con ❤️ por [JaviGarcia](https://github.com/javigarcias) 😊
+⌨️ con ❤️ por [JaviGarcia](https://www.linkedin.com/in/javigarciasanchez/) 😊
