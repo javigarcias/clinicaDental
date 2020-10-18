@@ -8,6 +8,4 @@ router.put('/logout', ClienteController.logout);
 
 
 
-
-
 module.exports = router;
