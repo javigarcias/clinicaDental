@@ -4,7 +4,7 @@
 
 # Clinica Dental Database
 
-_Este proyecto consiste en la creación de una base de datos para la gestión de citas de una clinica dental. Se ha realizado con una base de datos no realicional en MongoDB._
+_Este proyecto consiste en la creación de una base de datos para la gestión de citas de una clinica dental. Se ha realizado con una base de datos no realicional en MongoDB con encriptación de password en el caso de registro de usuarios. También he utilizado REGEX para introducir un mail valido y un password mas robusto._
 
 ## Comenzando 🚀
 
@@ -14,7 +14,7 @@ _Para poder poner en funcionamiento el proyecto en tu maquina local para proposi
 npm init -y
 npm i express mongoose bcryptjs
 ```
-### Endpoints 
+### Endpoints 📌
 - /clientes:
     - POST /registro (Registro de cliente nuevo)
     - POST /login (Login cliente ya registrado)
@@ -24,9 +24,16 @@ npm i express mongoose bcryptjs
     - DELETE /cancelar/:id (Cancelación de una cita)
     - GET /ver/:token (Ver citas pendientes de un usuario mediante su id)
 
+### REGEX 📋
+
+ - PASSWORD: 
+    -8/10 caracteres
+    -Uso de mayúsculas y minúsculas
+    -Uso de al menos un carácter especial
+
 ## Ejecutando las pruebas ⚙️
 
-*
+* [HEROKU TEST](https://clinica-dental-db.herokuapp.com/)
 
 ## Construido con 🛠️
 
