@@ -33,7 +33,7 @@ npm i express mongoose bcryptjs
 
 ## Ejecutando las pruebas ⚙️
 
-* [HEROKU TEST](https://clinica-dental-db.herokuapp.com/)
+* [HEROKU TEST](https://clinica-dental-b.herokuapp.com/)
 
 ## Construido con 🛠️
 
