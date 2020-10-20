@@ -1,5 +1,5 @@
 {
-  "name": "clinicaDental",
+  "name": "clinicaDental_B",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/javigarcias/clinicaDental.git"
+    "url": "git+https://github.com/javigarcias/clinicaDental_B.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/javigarcias/clinicaDental/issues"
+    "url": "https://github.com/javigarcias/clinicaDental_B/issues"
   },
-  "homepage": "https://github.com/javigarcias/clinicaDental#readme",
+  "homepage": "https://github.com/javigarcias/clinicaDental_B#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
