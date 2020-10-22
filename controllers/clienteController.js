@@ -35,6 +35,7 @@ const ClienteController = {
                 password: hashPass,
                 telefono: bodyData.telefono
             }).save();
+            await cliente.save(cliente.token = cliente._id);
             res.status(201).send(cliente);
         } catch (error) {
             console.error(error);
