@@ -66,7 +66,10 @@ const ClienteController = {
                 await clienteEncontrado.save();
                 res.send({
                     nombre: clienteEncontrado.nombre,
-                    email: clienteEncontrado.email
+                    apellidos: clienteEncontrado.apellidos,
+                    email: clienteEncontrado.email,
+                    telefono: clienteEncontrado.telefono,
+                    token: clienteEncontrado.token
                 })
             }
             
