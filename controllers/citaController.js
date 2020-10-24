@@ -1,11 +1,11 @@
 const CitaModel =require('../models/cita');
-const ClienteModel =require('../models/cliente');
+//const ClienteModel =require('../models/cliente');
 
 
 
 const CitaController = {
     async nuevacita (req, res) {
-        let cliente = await ClienteModel.findOne({
+        /* let cliente = await ClienteModel.findOne({
             email:req.body.email
         });
         if (!cliente.token){
@@ -13,14 +13,15 @@ const CitaController = {
                 error,
                 message: 'Debes logearte primero'
             })
-        }else{
-            try {
+        }else{ */
+            try { 
                 const cita = await CitaModel({
                     fecha: req.body.fecha,
                     tratamiento: req.body.tratamiento,
-                    iduser: cliente.token,
+                    iduser: req.body.iduser,
                     covid: req.body.covid ,
-                    estado: req.body.estado
+                    estado: req.body.estado,
+                    email: req.body.email
                 }).save();
                     res.status(201).send(cita);
         } catch (error) {
@@ -30,10 +31,9 @@ const CitaController = {
                 message: 'There was a problem trying to register the appointment'
             })
         }
-    }
+    },
 
     
-    },
     async cancelar (req, res){
         try {
             await CitaModel.findByIdAndDelete({
@@ -52,6 +52,7 @@ const CitaController = {
     },
     async ver (req, res){
         try {
+            
             const citas = await CitaModel.find({
                 iduser: req.params.token
             });

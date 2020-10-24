@@ -16,6 +16,8 @@ app.use(cors);
 const dbconnect = require('./config/dbconnect');
 dbconnect();
 
+app.options('/*', (req, res) => res.send());
+
 app.use('/clientes',clienteRouter);
 app.use('/citas', citaRouter);
 

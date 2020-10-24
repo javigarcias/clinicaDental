@@ -8,6 +8,9 @@ const UserSchema=mongoose.Schema({
     tratamiento:{
         type:String
     },
+    email:{
+        type:String
+    },
     iduser:{
         type:String
     },

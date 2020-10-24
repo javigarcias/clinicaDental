@@ -59,7 +59,7 @@ const ClienteController = {
             let passwordOk = await bcrypt.compare(req.body.password, clienteEncontrado.password);
     
             if(!passwordOk){
-                res.send({
+                res.status(400).send({
                     message: "Credenciales incorrectas"
                 })
             }else{
